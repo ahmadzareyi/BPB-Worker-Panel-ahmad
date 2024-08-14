@@ -840,18 +840,18 @@ const generateRemark = (index, port) => {
     switch (index) {
         case 0:
         case 1:
-            remark = `rwinVpn`;
+            remark = `𝒓𝒘𝒊𝒏𝑽𝒑𝒏 : FREE`;
             break;
         case 2:
         case 3:
-            remark = `rwinVpn`;
+            remark = `𝒓𝒘𝒊𝒏𝑽𝒑𝒏 : FREE`;
             break;
         case 4:
         case 5:
-            remark = `rwinVpn`;
+            remark = `𝒓𝒘𝒊𝒏𝑽𝒑𝒏 : FREE`;
             break;
         default:
-            remark = `rwinVpn`;
+            remark = `𝒓𝒘𝒊𝒏𝑽𝒑𝒏 : FREE`;
             break;
     }
 
