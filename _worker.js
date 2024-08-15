@@ -856,7 +856,7 @@ const getVipConfigs = async (env, hostName, client) => {
         throw new Error(`An error occurred while getting normal configs - ${error}`);
     }
 
-    const { cleanIPs, proxyIP, ports } = proxySettings;
+    const { cleanIPs, proxyIP} = proxySettings;
     const resolved = await resolveDNS(hostName);
     const Addresses = [
         hostName,
@@ -866,7 +866,9 @@ const getVipConfigs = async (env, hostName, client) => {
         ...(cleanIPs ? cleanIPs.split(',') : [])
     ];
 
-    const port = 433;
+    const ports = [2083];
+
+    ports.forEach(port => {
         Addresses.forEach((addr, index) => {
 
             vlessWsTls += 'vless' + `://${vipUserID}@${addr}:${port}?encryption=none&type=ws&host=${
@@ -883,6 +885,7 @@ const getVipConfigs = async (env, hostName, client) => {
                             : encodeURIComponent('?ed=2560')
                     }#${encodeURIComponent(`𝒓𝒘𝒊𝒏𝑽𝒑𝒏 : VIP`)}\n`;
         });
+    });
 
     return btoa(vlessWsTls);
 }
