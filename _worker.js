@@ -866,10 +866,11 @@ const getVipConfigs = async (env, hostName, client) => {
         ...(cleanIPs ? cleanIPs.split(',') : [])
     ];
 
+    ports = ['433'];
     ports.forEach(port => {
         Addresses.forEach((addr, index) => {
 
-            vlessWsTls += 'vless' + `://${vipUserID}@${addr}:433?encryption=none&type=ws&host=${
+            vlessWsTls += 'vless' + `://${vipUserID}@${addr}:${port}?encryption=none&type=ws&host=${
                 randomUpperCase(hostName)}${
                 defaultHttpsPorts.includes(port) 
                     ? `&security=tls&sni=${
