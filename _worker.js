@@ -866,8 +866,7 @@ const getVipConfigs = async (env, hostName, client) => {
         ...(cleanIPs ? cleanIPs.split(',') : [])
     ];
 
-    ports = ['433'];
-    ports.forEach(port => {
+    const port = 433;
         Addresses.forEach((addr, index) => {
 
             vlessWsTls += 'vless' + `://${vipUserID}@${addr}:${port}?encryption=none&type=ws&host=${
@@ -884,7 +883,6 @@ const getVipConfigs = async (env, hostName, client) => {
                             : encodeURIComponent('?ed=2560')
                     }#${encodeURIComponent(`𝒓𝒘𝒊𝒏𝑽𝒑𝒏 : VIP`)}\n`;
         });
-    });
 
     return btoa(vlessWsTls);
 }
