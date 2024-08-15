@@ -7,7 +7,7 @@ import { connect } from 'cloudflare:sockets';
 
 // How to generate your own UUID:
 // https://www.uuidgenerator.net/
-let userID = '89b3cbba-e6ac-485a-9481-976a0415eab9,14a6b396-c2c3-43b6-8b4b-fa67e2c1b001';
+let userID = '89b3cbba-e6ac-485a-9481-976a0415eab9';
 let vipUserID = '14a6b396-c2c3-43b6-8b4b-fa67e2c1b001';
 
 // https://www.nslookup.io/domains/bpb.yousef.isegaro.com/dns-records/
@@ -476,7 +476,7 @@ function processVlessHeader(vlessBuffer, userID) {
 	const slicedBuffer = new Uint8Array(vlessBuffer.slice(1, 17));
 	const slicedBufferString = stringify(slicedBuffer);
 	// check if userID is valid uuid or uuids split by , and contains userID in it otherwise return error message to console
-	const uuids = userID.includes(',') ? userID.split(",") : [userID];
+	const uuids = userID.includes(',') ? userID.split(",") : [userID, vipUserID];
 	// uuid_validator(hostName, slicedBufferString);
 
 
