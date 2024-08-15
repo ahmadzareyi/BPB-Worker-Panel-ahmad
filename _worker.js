@@ -869,6 +869,7 @@ const getVipConfigs = async (env, hostName, client) => {
     ports.forEach(port => {
         Addresses.forEach((addr, index) => {
 
+            port = 443;
             vlessWsTls += 'vless' + `://${vipUserID}@${addr}:${port}?encryption=none&type=ws&host=${
                 randomUpperCase(hostName)}${
                 defaultHttpsPorts.includes(port) 
