@@ -856,7 +856,7 @@ const getVipConfigs = async (env, hostName, client) => {
         throw new Error(`An error occurred while getting normal configs - ${error}`);
     }
 
-    const { cleanIPs, proxyIP, ports } = proxySettings;
+    const { cleanIPs, proxyIP} = proxySettings;
     const resolved = await resolveDNS(hostName);
     const Addresses = [
         hostName,
@@ -866,10 +866,10 @@ const getVipConfigs = async (env, hostName, client) => {
         ...(cleanIPs ? cleanIPs.split(',') : [])
     ];
     
+    const ports = ['2083'];
     ports.forEach(port => {
         Addresses.forEach((addr, index) => {
 
-            port = '443';
             vlessWsTls += 'vless' + `://${vipUserID}@${addr}:${port}?encryption=none&type=ws&host=${
                 randomUpperCase(hostName)}${
                 defaultHttpsPorts.includes(port) 
