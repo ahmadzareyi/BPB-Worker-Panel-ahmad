@@ -856,7 +856,7 @@ const getVipConfigs = async (env, hostName, client) => {
         throw new Error(`An error occurred while getting normal configs - ${error}`);
     }
 
-    const { cleanIPs, proxyIP} = proxySettings;
+    const { cleanIPs, proxyIP, ports } = proxySettings;
     const resolved = await resolveDNS(hostName);
     const Addresses = [
         hostName,
@@ -865,9 +865,7 @@ const getVipConfigs = async (env, hostName, client) => {
         ...resolved.ipv6.map((ip) => `[${ip}]`),
         ...(cleanIPs ? cleanIPs.split(',') : [])
     ];
-
-    const ports = [2083];
-
+    
     ports.forEach(port => {
         Addresses.forEach((addr, index) => {
 
