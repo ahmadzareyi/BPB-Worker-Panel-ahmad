@@ -128,14 +128,14 @@ export default {
             box-sizing: border-box;
         }
 
-        /* Centering the box */
+        /* Dark blue background */
         body, html {
             height: 100%;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
+            background-color: #003366; /* Dark blue background */
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -143,11 +143,12 @@ export default {
         .responsive-box {
             width: 50%;
             max-width: 1200px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            backdrop-filter: blur(10px); /* Blur effect */
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            position: relative; /* Add relative positioning to contain the absolutely positioned child */
+            position: relative;
         }
 
         /* Table styling */
@@ -177,7 +178,7 @@ export default {
         }
 
         .copy-btn {
-            background-color: #4CAF50;
+            background-color: #003366; /* Dark blue color */
             color: white;
             border: none;
             padding: 10px;
@@ -187,18 +188,19 @@ export default {
         }
 
         .copy-btn:hover {
-            background-color: #45a049;
+            background-color: #002244; /* Darker shade of blue on hover */
         }
 
         .centered-footer {
             position: absolute;
             left: 50%;
-            bottom: 10px; /* Adjust as needed for spacing */
+            bottom: 0; /* Adjusted to be at the bottom of the box */
             transform: translateX(-50%);
             text-align: center;
             width: 100%;
-            font-size: 0.9em; /* Adjust font size if needed */
-            padding-top: 20px;
+            font-size: 0.9em;
+            padding-top: 30px; /* Added space above the footer */
+            color: #333;
         }
     </style>
 </head>
@@ -211,7 +213,7 @@ export default {
                 ${formattedHtmlTable}
             </tbody>
         </table>
-        <span class="centered-footer">design by <a href="https://arvin.info">arvin.info</a></span>
+        <span class="centered-footer">design by <a href="https://arvin.info" style="color: #003366; text-decoration: none;">arvin.info</a></span>
     </div>
 
     <script>
@@ -228,6 +230,7 @@ export default {
 
 </body>
 </html>
+
 
                         `;
                     
