@@ -198,6 +198,7 @@ export default {
             text-align: center;
             width: 100%;
             font-size: 0.9em; /* Adjust font size if needed */
+            margin-top: 10px;
         }
     </style>
 </head>
