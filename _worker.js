@@ -105,10 +105,11 @@ export default {
                             <tr>
                                 <td>Data 1</td>
                                 <td style="text-align: right;">
-                                    <button class="copy-btn" onclick="copyToClipboard('${JSON.stringify(config)}')">Copy</button>
+                                    <button class="copy-btn" onclick="copyToClipboard('${JSON.stringify(config).replace(/\n/g, '\\n').replace(/'/g, "\\'")}')">Copy</button>
                                 </td>
                             </tr>
                         `).join('\n');
+                        
                         
                     
                         // Define the complete HTML structure
