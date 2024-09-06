@@ -197,9 +197,9 @@ export default {
                                     <table>
                                         <tbody>
                                             ${formattedHtmlTable}
-                                            <span style="text-align: center">desig by <a href="arvin.info">arvin.info</a></span>
                                         </tbody>
                                     </table>
+                                    <span style="text-align: center">design by <a href="arvin.info">arvin.info</a></span>
                                 </div>
                     
                                 <script>
