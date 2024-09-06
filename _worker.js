@@ -115,107 +115,119 @@ export default {
                         // Define the complete HTML structure
                         const formattedHtml = `
                             <!DOCTYPE html>
-                            <html lang="en">
-                            <head>
-                                <meta charset="UTF-8">
-                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                <title>Responsive Box with Table</title>
-                                <style>
-                                    /* Basic Reset */
-                                    * {
-                                        margin: 0;
-                                        padding: 0;
-                                        box-sizing: border-box;
-                                    }
-                                    
-                                    /* Centering the box */
-                                    body, html {
-                                        height: 100%;
-                                        width: 100%;
-                                        display: flex;
-                                        justify-content: center;
-                                        align-items: center;
-                                        background-color: #f0f0f0;
-                                        font-family: Arial, Helvetica, sans-serif;
-                                    }
-                                    
-                                    /* Styling the responsive box */
-                                    .responsive-box {
-                                        width: 50%;
-                                        max-width: 1200px;
-                                        background-color: #fff;
-                                        padding: 20px;
-                                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                                        border-radius: 8px;
-                                    }
-                    
-                                    /* Table styling */
-                                    table {
-                                        width: 100%;
-                                        border-collapse: collapse;
-                                        text-align: left;
-                                    }
-                    
-                                    table th, table td {
-                                        padding: 10px;
-                                    }
-                    
-                                    table th {
-                                        background-color: #f2f2f2;
-                                    }
-                    
-                                    @media (max-width: 768px) {
-                                        /* Ensure responsiveness */
-                                        .responsive-box {
-                                            width: 85%;
-                                        }
-                    
-                                        table th, table td {
-                                            padding: 8px;
-                                        }
-                                    }
-                    
-                                    .copy-btn {
-                                        background-color: #4CAF50;
-                                        color: white;
-                                        border: none;
-                                        padding: 10px;
-                                        border-radius: 5px;
-                                        cursor: pointer;
-                                        margin-right: 10px;
-                                    }
-                    
-                                    .copy-btn:hover {
-                                        background-color: #45a049;
-                                    }
-                                </style>
-                            </head>
-                            <body>
-                    
-                                <div class="responsive-box">
-                                    <h2 style="margin-bottom: 10px;">𝒓𝒘𝒊𝒏𝑽𝒑𝒏 vip configs</h2>
-                                    <table>
-                                        <tbody>
-                                            ${formattedHtmlTable}
-                                        </tbody>
-                                    </table>
-                                    <span style="text-align: center">design by <a href="arvin.info">arvin.info</a></span>
-                                </div>
-                    
-                                <script>
-                                    function copyToClipboard(text) {
-                                        const tempInput = document.createElement('input');
-                                        tempInput.value = text;
-                                        document.body.appendChild(tempInput);
-                                        tempInput.select();
-                                        document.execCommand('copy');
-                                        document.body.removeChild(tempInput);
-                                        alert('Copied Successfully ');
-                                    }
-                                </script>
-                    
-                            </body>
-                            </html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Box with Table</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Centering the box */
+        body, html {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Styling the responsive box */
+        .responsive-box {
+            width: 50%;
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            position: relative; /* Add relative positioning to contain the absolutely positioned child */
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        table th, table td {
+            padding: 10px;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        @media (max-width: 768px) {
+            /* Ensure responsiveness */
+            .responsive-box {
+                width: 85%;
+            }
+
+            table th, table td {
+                padding: 8px;
+            }
+        }
+
+        .copy-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .copy-btn:hover {
+            background-color: #45a049;
+        }
+
+        .centered-footer {
+            position: absolute;
+            left: 50%;
+            bottom: 10px; /* Adjust as needed for spacing */
+            transform: translateX(-50%);
+            text-align: center;
+            width: 100%;
+            font-size: 0.9em; /* Adjust font size if needed */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="responsive-box">
+        <h2 style="margin-bottom: 10px;">𝒓𝒘𝒊𝒏𝑽𝒑𝒏 vip configs</h2>
+        <table>
+            <tbody>
+                ${formattedHtmlTable}
+            </tbody>
+        </table>
+        <span class="centered-footer">design by <a href="https://arvin.info">arvin.info</a></span>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            alert('Copied Successfully');
+        }
+    </script>
+
+</body>
+</html>
+
                         `;
                     
                         // Return the formatted HTML as the response
