@@ -87,13 +87,25 @@ export default {
                         return new Response(normalConfigs, { status: 200 });   
                         
                     case `/sub/VIP`:
-
                         if (client === 'sfa') {
                             const BestPingSFA = await getSingboxConfig(env, host);
                             return new Response(`${JSON.stringify(BestPingSFA, null, 4)}`, { status: 200 });                            
                         }
-                        const vipConfigs = await getVipConfigs(env, host, client);
-                        return new Response(vipConfigs, { status: 200 });  
+                        
+                        const vipConfigsBase64 = await getVipConfigs(env, host, client);
+                    
+                        // Decode the Base64 string
+                        const vipConfigsDecoded = atob(vipConfigsBase64);
+                    
+                        // Process decoded vipConfigs to create HTML
+                        const vipConfigsArray = vipConfigsDecoded.split('\n').filter(config => config.trim() !== '');  // Split by newline and remove empty lines
+                        let formattedHtml = vipConfigsArray.map(config => `<div><pre>${config}</pre></div>`).join('\n');
+                    
+                        // Return the formatted HTML
+                        return new Response(formattedHtml, {
+                            status: 200,
+                            headers: { 'Content-Type': 'text/html' }
+                        });
 
                     case `/fragsub/${userID}`:
 
