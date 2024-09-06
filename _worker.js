@@ -105,7 +105,7 @@ export default {
                             <tr>
                                 <td>Data 1</td>
                                 <td style="text-align: right;">
-                                    <button class="copy-btn" onclick="copyToClipboard('${encodeURIComponent(JSON.stringify(config, null, 4))}')">Copy</button>
+                                    <button class="copy-btn" onclick="copyToClipboard('${config}')">Copy</button>
                                 </td>
                             </tr>
                         `).join('\n');
