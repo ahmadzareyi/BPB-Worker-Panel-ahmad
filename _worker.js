@@ -103,7 +103,7 @@ export default {
                         // Create HTML table rows for each configuration
                         const formattedHtmlTable = vipConfigsArray.map(config => `
                             <tr>
-                                <td>${config.address}</td>
+                                <td>𝒓𝒘𝒊𝒏𝑽𝒑𝒏 : VIP</td>
                                 <td style="text-align: right;">
                                     <button class="copy-btn" onclick="copyToClipboard('${config}')">Copy</button>
                                 </td>
@@ -179,7 +179,7 @@ export default {
                                         background-color: #4CAF50;
                                         color: white;
                                         border: none;
-                                        padding: 5px 10px;
+                                        padding: 10px;
                                         border-radius: 5px;
                                         cursor: pointer;
                                     }
