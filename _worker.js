@@ -197,9 +197,7 @@ export default {
                                     <table>
                                         <tbody>
                                             ${formattedHtmlTable}
-                                            <td style="text-align: center;">
-                                                <span>طراحی شده توسط arvin.info</span>
-                                            </td>
+                                            <span style="text-align: center">desig by <a href="arvin.info">arvin.info</a></span>
                                         </tbody>
                                     </table>
                                 </div>
