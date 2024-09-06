@@ -216,7 +216,7 @@ export default {
 <body>
 
     <div class="responsive-box">
-        <h2 style="margin-bottom: 10px;">rwin panel - vip configs</h2>
+        <h2 style="margin-bottom: 10px;">rwinPanel - vip configs</h2>
         <table>
             <tbody>
             ${formattedHtmlTable}
