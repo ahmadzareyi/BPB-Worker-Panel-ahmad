@@ -88,32 +88,32 @@ export default {
                         
                     case `/sub/VIP`:
 
-                        let tableBlock = "";
-                        let configs = await getSingboxConfig(env, host);
-                        
-                        configs.forEach(config => {
-                            const configText = encodeURIComponent(JSON.stringify(config.config, null, 4));
-                        
-                            tableBlock += `
+                        const genCustomConfRow2 = async (configs) => {
+                            let tableBlock = "";
+                            configs.forEach(config => {
+                                tableBlock += `
                                 <tr>
                                     <td>
                                         ${config.address === 'Best-Ping' 
-                                            ? `<div style="display: flex; justify-content: center;"><span><b>💦 Best-Ping 💥</b></span></div>` 
+                                            ? `<div  style="justify-content: center;"><span><b>💦 Best-Ping 💥</b></span></div>` 
                                             : config.address === 'WorkerLess'
-                                                ? `<div style="display: flex; justify-content: center;"><span><b>💦 WorkerLess ⭐</b></span></div>`
+                                                ? `<div  style="justify-content: center;"><span><b>💦 WorkerLess ⭐</b></span></div>`
                                                 : config.address === 'Best-Fragment'
-                                                    ? `<div style="display: flex; justify-content: center;"><span><b>💦 Best-Fragment 😎</b></span></div>`
+                                                    ? `<div  style="justify-content: center;"><span><b>💦 Best-Fragment 😎</b></span></div>`
                                                     : config.address
                                         }
                                     </td>
                                     <td>
-                                        <button onclick="copyToClipboard('${configText}', true)">
+                                        <button onclick="copyToClipboard('${encodeURIComponent(JSON.stringify(config.config, null, 4))}', true)">
                                             Copy Config 
                                             <span class="material-symbols-outlined">copy_all</span>
                                         </button>
                                     </td>
                                 </tr>`;
-                        });
+                            });
+                    
+                            return tableBlock;
+                        }
                     
 
                         if (client === 'sfa') {
@@ -121,7 +121,8 @@ export default {
                             return new Response(`${JSON.stringify(BestPingSFA, null, 4)}`, { status: 200 });                            
                         }
                         const vipConfigs = await getVipConfigs(env, host, client);
-                        return new Response(tableBlock, { status: 200 });  
+                        const tableBlock2 = await genCustomConfRow2(vipConfigs);
+                        return new Response(tableBlock2, { status: 200 });  
 
                     case `/fragsub/${userID}`:
 
