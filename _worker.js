@@ -99,11 +99,10 @@ export default {
                     
                         // Process decoded vipConfigs to create HTML
                         const vipConfigsArray = vipConfigsDecoded.split('\n').filter(config => config.trim() !== '');  // Split by newline and remove empty lines
-                        const htmlBtn = `<button onclick="copyToClipboard('${encodeURIComponent(JSON.stringify(config, null, 4))}', true)">
+                        let formattedHtml = vipConfigsArray.map(config => `<button onclick="copyToClipboard('${encodeURIComponent(JSON.stringify(config, null, 4))}', true)">
                         Copy Config 
                         <span class="material-symbols-outlined">copy_all</span>
-                    </button>`;
-                        let formattedHtml = vipConfigsArray.map(config => `<div><pre>${config}</pre></div>`).join('\n');
+                    </button>`).join('\n');
                     
                         // Return the formatted HTML
                         return new Response(formattedHtml, {
