@@ -90,27 +90,31 @@ export default {
 
                         let tableBlock = "";
                         let configs = await getSingboxConfig(env, host);
+                        
                         configs.forEach(config => {
+                            const configText = encodeURIComponent(JSON.stringify(config.config, null, 4));
+                        
                             tableBlock += `
-                            <tr>
-                                <td>
-                                    ${config.address === 'Best-Ping' 
-                                        ? `<div  style="justify-content: center;"><span><b>💦 Best-Ping 💥</b></span></div>` 
-                                        : config.address === 'WorkerLess'
-                                            ? `<div  style="justify-content: center;"><span><b>💦 WorkerLess ⭐</b></span></div>`
-                                            : config.address === 'Best-Fragment'
-                                                ? `<div  style="justify-content: center;"><span><b>💦 Best-Fragment 😎</b></span></div>`
-                                                : config.address
-                                    }
-                                </td>
-                                <td>
-                                    <button onclick="copyToClipboard('${encodeURIComponent(JSON.stringify(config.config, null, 4))}', true)">
-                                        Copy Config 
-                                        <span class="material-symbols-outlined">copy_all</span>
-                                    </button>
-                                </td>
-                            </tr>`;
+                                <tr>
+                                    <td>
+                                        ${config.address === 'Best-Ping' 
+                                            ? `<div style="display: flex; justify-content: center;"><span><b>💦 Best-Ping 💥</b></span></div>` 
+                                            : config.address === 'WorkerLess'
+                                                ? `<div style="display: flex; justify-content: center;"><span><b>💦 WorkerLess ⭐</b></span></div>`
+                                                : config.address === 'Best-Fragment'
+                                                    ? `<div style="display: flex; justify-content: center;"><span><b>💦 Best-Fragment 😎</b></span></div>`
+                                                    : config.address
+                                        }
+                                    </td>
+                                    <td>
+                                        <button onclick="copyToClipboard('${configText}', true)">
+                                            Copy Config 
+                                            <span class="material-symbols-outlined">copy_all</span>
+                                        </button>
+                                    </td>
+                                </tr>`;
                         });
+                    
 
                         if (client === 'sfa') {
                             const BestPingSFA = await getSingboxConfig(env, host);
