@@ -182,6 +182,7 @@ export default {
                                         padding: 10px;
                                         border-radius: 5px;
                                         cursor: pointer;
+                                        margin-right: 10px;
                                     }
                     
                                     .copy-btn:hover {
@@ -192,7 +193,7 @@ export default {
                             <body>
                     
                                 <div class="responsive-box">
-                                    <h2 style="margin-bottom: 10px;">Responsive Table</h2>
+                                    <h2 style="margin-bottom: 10px;">𝒓𝒘𝒊𝒏𝑽𝒑𝒏 vip configs</h2>
                                     <table>
                                         <tbody>
                                             ${formattedHtmlTable}
