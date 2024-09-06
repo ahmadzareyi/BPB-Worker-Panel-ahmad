@@ -137,10 +137,11 @@ export default {
             align-items: center;
             background-color: #003366; /* Dark blue background */
             font-family: Arial, Helvetica, sans-serif;
-            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuJaNH44TxqqdSxxBciyqNk5qPopIdZTDCUnbVRXXEDzTzSvXBqUz9w0wvHZ2gqhdrTvfFM5HuslQRyfPLUwiX5igVzzdEPV-BgcLmbVgGIDb-i8D5aMAtDouPkMg0Tzqi1rHioBLSqX1riGUamIYpSLtGziBK3fTPk_7Cw_7uMelew9CfP0sURgjj_Q/s3840/BEAUTY-LANDSCAPE-LAKE-1192023.png');
+            background-image: url('https://raw.githubusercontent.com/Kwinshadow/BPB-Worker-Panel-kwin/main/x.png');
             background-size: cover; /* Ensures the image covers the entire background */
             background-position: center; /* Centers the image */
             background-repeat: no-repeat; /* Prevents the image from repeating */
+            color: white;
         }
 
         /* Styling the responsive box */
@@ -182,9 +183,9 @@ export default {
         }
 
         .copy-btn {
-            background-color: #003366; /* Dark blue color */
+            background-color: transparent; /* Dark blue color */
             color: white;
-            border: none;
+            border: 1px solid white;
             padding: 10px;
             border-radius: 5px;
             cursor: pointer;
@@ -204,7 +205,6 @@ export default {
             width: 100%;
             font-size: 0.9em;
             padding-top: 30px; /* Added space above the footer */
-            color: #333;
         }
     </style>
 </head>
@@ -214,10 +214,10 @@ export default {
         <h2 style="margin-bottom: 10px;">𝒓𝒘𝒊𝒏𝑽𝒑𝒏 vip configs</h2>
         <table>
             <tbody>
-                ${formattedHtmlTable}
+            ${formattedHtmlTable}
             </tbody>
         </table>
-        <span class="centered-footer">design by <a href="https://arvin.info" style="color: #003366; text-decoration: none;">arvin.info</a></span>
+        <span class="centered-footer">design by <a href="https://arvin.info" style="color: skyblue; text-decoration: none;">arvin.info</a></span>
     </div>
 
     <script>
