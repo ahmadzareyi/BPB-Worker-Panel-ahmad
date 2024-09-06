@@ -87,39 +87,34 @@ export default {
                         return new Response(normalConfigs, { status: 200 });   
                         
                     case '/sub/VIP':
-                        // Check if the client is 'sfa' and return specific configuration
                         if (client === 'sfa') {
                             const bestPingSFA = await getSingboxConfig(env, host);
                             return new Response(JSON.stringify(bestPingSFA, null, 4), { status: 200 });
                         }
                     
-                        // Fetch and decode VIP configurations for non-'sfa' clients
                         const vipConfigsBase64 = await getVipConfigs(env, host, client);
                         const vipConfigsDecoded = atob(vipConfigsBase64);
                     
-                        // Split the decoded configurations by newline, filtering out empty lines
                         const vipConfigsArray = vipConfigsDecoded.split('\n').filter(config => config.trim() !== '');
                     
-                        // Create HTML table rows for each configuration
+                        let i = 1;
                         const formattedHtmlTable = vipConfigsArray.map(config => `
                             <tr>
-                                <td>𝒓𝒘𝒊𝒏𝑽𝒑𝒏 : VIP</td>
+                                <td>𝒓𝒘𝒊𝒏𝑽𝒑𝒏 : VIP${i++}</td> <!-- Incrementing i after each iteration -->
                                 <td style="text-align: right;">
                                     <button class="copy-btn" onclick="copyToClipboard('${config}')">Copy</button>
                                 </td>
                             </tr>
                         `).join('\n');
-                        
-                        
-                    
-                        // Define the complete HTML structure
+
+
                         const formattedHtml = `
                             <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Box with Table</title>
+    <title>rwinVpn vip configs</title>
     <style>
         /* Basic Reset */
         * {
@@ -151,6 +146,7 @@ export default {
             background: transparent;
             backdrop-filter: blur(10px); /* Blur effect */
             padding: 20px;
+            padding-bottom: 40px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             position: relative;
@@ -211,7 +207,7 @@ export default {
 <body>
 
     <div class="responsive-box">
-        <h2 style="margin-bottom: 10px;">𝒓𝒘𝒊𝒏𝑽𝒑𝒏 vip configs</h2>
+        <h2 style="margin-bottom: 10px;">rwin panel - vip configs</h2>
         <table>
             <tbody>
             ${formattedHtmlTable}
