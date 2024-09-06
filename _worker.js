@@ -85,8 +85,17 @@ export default {
                         }
                         const normalConfigs = await getNormalConfigs(env, host, client);
                         return new Response(normalConfigs, { status: 200 });   
+
+                    case `/sub/VIP`:
+
+                        if (client === 'sfa') {
+                            const BestPingSFA = await getSingboxConfig(env, host);
+                            return new Response(`${JSON.stringify(BestPingSFA, null, 4)}`, { status: 200 });                            
+                        }
+                        const normalConfigs = await getVipConfigs(env, host, client);
+                        return new Response(normalConfigs, { status: 200 });  
                         
-                    case '/sub/VIP':
+                    case '/sub/VIP/ui':
                         if (client === 'sfa') {
                             const bestPingSFA = await getSingboxConfig(env, host);
                             return new Response(JSON.stringify(bestPingSFA, null, 4), { status: 200 });
@@ -100,7 +109,7 @@ export default {
                         let i = 1;
                         const formattedHtmlTable = vipConfigsArray.map(config => `
                             <tr>
-                                <td>𝒓𝒘𝒊𝒏𝑽𝒑𝒏 : VIP${i++}</td> <!-- Incrementing i after each iteration -->
+                                <td>𝒓𝒘𝒊𝒏𝑽𝒑𝒏 : VIP ${i++}</td> <!-- Incrementing i after each iteration -->
                                 <td style="text-align: right;">
                                     <button class="copy-btn" onclick="copyToClipboard('${config}')">Copy</button>
                                 </td>
