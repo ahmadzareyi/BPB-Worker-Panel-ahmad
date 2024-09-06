@@ -137,13 +137,17 @@ export default {
             align-items: center;
             background-color: #003366; /* Dark blue background */
             font-family: Arial, Helvetica, sans-serif;
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuJaNH44TxqqdSxxBciyqNk5qPopIdZTDCUnbVRXXEDzTzSvXBqUz9w0wvHZ2gqhdrTvfFM5HuslQRyfPLUwiX5igVzzdEPV-BgcLmbVgGIDb-i8D5aMAtDouPkMg0Tzqi1rHioBLSqX1riGUamIYpSLtGziBK3fTPk_7Cw_7uMelew9CfP0sURgjj_Q/s3840/BEAUTY-LANDSCAPE-LAKE-1192023.png');
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
         }
 
         /* Styling the responsive box */
         .responsive-box {
             width: 50%;
             max-width: 1200px;
-            background: transparent; /* White with 80% opacity */
+            background: transparent;
             backdrop-filter: blur(10px); /* Blur effect */
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
