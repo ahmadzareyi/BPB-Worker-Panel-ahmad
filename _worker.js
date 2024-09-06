@@ -143,8 +143,8 @@ export default {
         .responsive-box {
             width: 50%;
             max-width: 1200px;
-            background-color: transparent; /* White with 80% opacity */
-            backdrop-filter: blur(10%); /* Blur effect */
+            background: transparent; /* White with 80% opacity */
+            backdrop-filter: blur(10px); /* Blur effect */
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
