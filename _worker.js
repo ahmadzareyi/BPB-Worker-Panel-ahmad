@@ -102,7 +102,7 @@ export default {
                         let formattedHtmlTable = vipConfigsArray.map(config => `<tr>
                     <td>Data 1</td>
                     <td style="text-align: right;">
-                        <button class="copy-btn" onclick="copyToClipboard('${JSON.stringify(config, null, 4)}')">Copy</button>
+                        <button class="copy-btn" onclick="copyToClipboard(${JSON.stringify(config, null, 4)})">Copy</button>
                     </td>
                 </tr>`).join('\n');
 
