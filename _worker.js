@@ -99,7 +99,14 @@ export default {
                     
                         // Process decoded vipConfigs to create HTML
                         const vipConfigsArray = vipConfigsDecoded.split('\n').filter(config => config.trim() !== '');  // Split by newline and remove empty lines
-                        let formattedHtml = vipConfigsArray.map(config => `<!DOCTYPE html>
+                        let formattedHtmlTable = vipConfigsArray.map(config => `<tr>
+                    <td>Data 1</td>
+                    <td style="text-align: right;">
+                        <button class="copy-btn" onclick="copyToClipboard('${JSON.stringify(config, null, 4)}')">Copy</button>
+                    </td>
+                </tr>`).join('\n');
+
+                        let formattedHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -180,12 +187,7 @@ export default {
         <h2 style="margin-bottom: 10px;">Responsive Table</h2>
         <table>
             <tbody>
-                <tr>
-                    <td>Data 1</td>
-                    <td style="text-align: right;">
-                        <button class="copy-btn" onclick="copyToClipboard('${encodeURIComponent(JSON.stringify(config, null, 4))}')">Copy</button>
-                    </td>
-                </tr>
+                ${formattedHtmlTable}
             </tbody>
         </table>
     </div>
@@ -204,10 +206,7 @@ export default {
 
 </body>
 </html>
-', true)">
-                        Copy Config 
-                        <span class="material-symbols-outlined">copy_all</span>
-                    </button>`).join('\n');
+`;
                     
                         // Return the formatted HTML
                         return new Response(formattedHtml, {
