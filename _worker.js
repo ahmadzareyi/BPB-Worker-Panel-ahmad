@@ -92,10 +92,10 @@ export default {
                             const BestPingSFA = await getSingboxConfig(env, host);
                             return new Response(`${JSON.stringify(BestPingSFA, null, 4)}`, { status: 200 });                            
                         }
-                        const normalConfigs = await getVipConfigs(env, host, client);
-                        return new Response(normalConfigs, { status: 200 });  
+                        const vipConfigs = await getVipConfigs(env, host, client);
+                        return new Response(vipConfigs, { status: 200 });  
                         
-                    case '/sub/ui':
+                    case '/sub/VIP/ui':
                         if (client === 'sfa') {
                             const bestPingSFA = await getSingboxConfig(env, host);
                             return new Response(JSON.stringify(bestPingSFA, null, 4), { status: 200 });
