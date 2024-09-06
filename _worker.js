@@ -143,7 +143,7 @@ export default {
         .responsive-box {
             width: 50%;
             max-width: 1200px;
-            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            background-color: transparent; /* White with 80% opacity */
             backdrop-filter: blur(10px); /* Blur effect */
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -194,7 +194,7 @@ export default {
         .centered-footer {
             position: absolute;
             left: 50%;
-            bottom: 0; /* Adjusted to be at the bottom of the box */
+            bottom: 10px; /* Adjusted to be at the bottom of the box */
             transform: translateX(-50%);
             text-align: center;
             width: 100%;
@@ -230,6 +230,7 @@ export default {
 
 </body>
 </html>
+
 
 
                         `;
