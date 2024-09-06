@@ -197,6 +197,9 @@ export default {
                                     <table>
                                         <tbody>
                                             ${formattedHtmlTable}
+                                            <td style="text-align: center;">
+                                                <span>طراحی شده توسط arvin.info</span>
+                                            </td>
                                         </tbody>
                                     </table>
                                 </div>
