@@ -103,7 +103,7 @@ export default {
                         // Create HTML table rows for each configuration
                         const formattedHtmlTable = vipConfigsArray.map(config => `
                             <tr>
-                                <td>Data 1</td>
+                                <td>${config.address}</td>
                                 <td style="text-align: right;">
                                     <button class="copy-btn" onclick="copyToClipboard('${config}')">Copy</button>
                                 </td>
@@ -208,7 +208,7 @@ export default {
                                         tempInput.select();
                                         document.execCommand('copy');
                                         document.body.removeChild(tempInput);
-                                        alert('Copied: ' + text);
+                                        alert('Copied Successfully ');
                                     }
                                 </script>
                     
