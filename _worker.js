@@ -99,7 +99,112 @@ export default {
                     
                         // Process decoded vipConfigs to create HTML
                         const vipConfigsArray = vipConfigsDecoded.split('\n').filter(config => config.trim() !== '');  // Split by newline and remove empty lines
-                        let formattedHtml = vipConfigsArray.map(config => `<button onclick="copyToClipboard('${encodeURIComponent(JSON.stringify(config, null, 4))}', true)">
+                        let formattedHtml = vipConfigsArray.map(config => `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Box with Table</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Centering the box */
+        body, html {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Styling the responsive box */
+        .responsive-box {
+            width: 50%;
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        table th, table td {
+            padding: 10px;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        @media (max-width: 768px) {
+            /* Ensure responsiveness */
+            .responsive-box {
+                width: 85%;
+            }
+
+            table th, table td {
+                padding: 8px;
+            }
+        }
+
+        .copy-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="responsive-box">
+        <h2 style="margin-bottom: 10px;">Responsive Table</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Data 1</td>
+                    <td style="text-align: right;">
+                        <button class="copy-btn" onclick="copyToClipboard('${encodeURIComponent(JSON.stringify(config, null, 4))}')">Copy</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            alert('Copied: ' + text);
+        }
+    </script>
+
+</body>
+</html>
+', true)">
                         Copy Config 
                         <span class="material-symbols-outlined">copy_all</span>
                     </button>`).join('\n');
