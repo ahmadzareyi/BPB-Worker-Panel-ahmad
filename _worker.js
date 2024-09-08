@@ -222,7 +222,6 @@ export default {
             ${formattedHtmlTable}
             </tbody>
         </table>
-        <span class="centered-footer">design by <a href="https://arvin.info" style="color: skyblue; text-decoration: none;">arvin.info</a></span>
     </div>
 
     <script>
